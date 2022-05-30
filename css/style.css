@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+}
+body {
+  margin: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wrap {
+  margin-top: 200px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+.cube {
+  margin: 0 auto;
+  position: relative;
+  height: 300px;
+  width: 300px;
+  transform-style: preserve-3d;
+  animation: rotate 20s infinite linear;
+}
+.cube > div {
+  position: absolute;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+.front {
+  background-image: url(../foto/budapest.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translateZ(150px);
+}
+.back {
+  background-image: url(../foto/coloseo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translateZ(-150px) rotateY(180deg);
+}
+.top {
+  background-image: url(../foto/egypt.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: rotateX(-270deg) translateY(-150px);
+  transform-origin: top center;
+}
+.bottom {
+  background-image: url(../foto/tai.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: rotateX(270deg) translateY(150px);
+  transform-origin: bottom center;
+}
+.left {
+  background-image: url(../foto/japan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: rotateY(270deg) translateX(-150px);
+  transform-origin: center left;
+}
+.right {
+  background-image: url(../foto/kiev1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30% 70%;
+  transform: rotateY(-270deg) translateX(150px);
+  transform-origin: top right;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+.wrap:hover .front {
+  transform: translateZ(300px);
+}
+.wrap:hover .back {
+  transform: translateZ(-200px) rotateY(180deg);
+}
+.wrap:hover .right {
+  transform: rotateY(-270deg) translateZ(100px) translateX(100px);
+}
+.wrap:hover .left {
+  transform: rotateY(270deg) translateZ(100px) translateX(-100px);
+}
+.wrap:hover .top {
+  transform: rotateX(-270deg) translateZ(100px) translateY(-100px);
+}
+.wrap:hover .bottom {
+  transform: rotateX(270deg) translateZ(100px) translateY(100px);
+}
+.cube > div {
+  transition: transform 0.2s ease-in;
+}
